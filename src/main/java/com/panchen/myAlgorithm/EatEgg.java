@@ -23,13 +23,24 @@ public class EatEgg {
         return result;
 
     }
-    
-    
-    //动态规划版
-    private static int getEatEggWay() {
-        return 0;}
+
+
+    // 动态规划实现
+    private static int getEatEggDPWay(int eggSum) {
+        if (1 >= eggSum) {
+            return eggSum;
+        }
+        int[] dp = new int[eggSum];
+        dp[0] = 1;
+        dp[1] = 2;
+        for (int i = 2; i < eggSum; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[eggSum - 1];
+    }
 
     public static void main(String[] args) {
         System.out.print(getEatEggWay(10));
+        System.out.print(getEatEggDPWay(10));
     }
 }
