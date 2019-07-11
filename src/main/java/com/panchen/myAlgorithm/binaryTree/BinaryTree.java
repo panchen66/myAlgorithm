@@ -91,7 +91,7 @@ public class BinaryTree {
 
     private Node posOrderForBiggestSubBST(Node head, int[] record) {
         if (head == null) {
-            
+
             return null;
         }
         int value = head.value;
@@ -102,7 +102,7 @@ public class BinaryTree {
         int lmin = record[1];
         int lmax = record[2];
 
-        Node rBST = posOrderForBiggestSubBST(left, record);
+        Node rBST = posOrderForBiggestSubBST(right, record);
         int rSize = record[0];
         int rmin = record[1];
         int rmax = record[2];
@@ -117,4 +117,35 @@ public class BinaryTree {
         return lSize > rSize ? lBST : rBST;
 
     }
+
+
+    // 判断二叉树是否为平衡二叉树
+    // 平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树（有别于AVL算法），
+    // 且具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。
+    private boolean isBalance(Node head) {
+        Boolean isBalance = Boolean.TRUE;
+        getHeight(head, 1, isBalance);
+        return isBalance;
+    }
+
+    private int getHeight(Node head, int height, Boolean res) {
+        if (null == head) {
+            return 0;
+        }
+        int lh = getHeight(head.left, ++height, res);
+        if (!res) {
+            return height;
+        }
+        int rh = getHeight(head.right, ++height, res);
+        if (!res) {
+            return height;
+        }
+        if (Math.abs(lh - rh) > 1) {
+            res = false;
+        }
+        return Math.max(lh, rh);
+
+
+    }
+
 }
