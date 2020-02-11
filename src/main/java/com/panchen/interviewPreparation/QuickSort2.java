@@ -1,7 +1,7 @@
 package com.panchen.interviewPreparation;
 
 /**
- * @Description:
+ * @Description:  快排最好情况是nlgn  最坏1/2n^2
  * @author: chenp
  * @date: 2020/02/08 20:31
  */
