@@ -8,7 +8,7 @@ package com.panchen.bitOperation;
 public class CompareNumber {
 
     public static void main(String[] args) {
-        int i = 0;
+        int i = 1;
         System.out.println((i & 0xFFFFFE00) == 0);
 
         System.out.println((i&-1)==0);
