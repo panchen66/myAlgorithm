@@ -30,4 +30,5 @@ public class SelectionSort {
         int[] arr = {111, 3, 5, 52, 74, 312, 75, 3, 764, 3, 2111, 7, 31};
         System.out.println(selectionSort(arr));
     }
+
 }
