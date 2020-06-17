@@ -23,14 +23,14 @@ public class FindSubstring {
     //作者：windliang
     //链接：https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-6/
     public List<Integer> findSubstring(String s, String[] words) {
-        List<Integer> res = new ArrayList<Integer>();
+        List<Integer> res = new ArrayList<>();
         int wordNum = words.length;
         if (wordNum == 0) {
             return res;
         }
         int wordLen = words[0].length();
         //HashMap1 存所有单词
-        HashMap<String, Integer> allWords = new HashMap<String, Integer>();
+        HashMap<String, Integer> allWords = new HashMap<>();
         for (String w : words) {
             int value = allWords.getOrDefault(w, 0);
             allWords.put(w, value + 1);
@@ -38,7 +38,7 @@ public class FindSubstring {
         //遍历所有子串
         for (int i = 0; i < s.length() - wordNum * wordLen + 1; i++) {
             //HashMap2 存当前扫描的字符串含有的单词
-            HashMap<String, Integer> hasWords = new HashMap<String, Integer>();
+            HashMap<String, Integer> hasWords = new HashMap<>();
             int num = 0;
             //判断该子串是否符合
             while (num < wordNum) {
