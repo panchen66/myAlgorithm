@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -77,6 +78,7 @@ public class SortBigFile {
 
     //到这里已经是n个有序的小块数据文件了，假设有n个 已经维护内存最多80M的要求 就从每个文件取出 80/（n+1）
     private static void multiMergeSort() throws IOException {
+
 
         Map<String, RandomAccessFile> divideRafCache = new HashMap<>();
         for (File divideFile : divideFiles) {
